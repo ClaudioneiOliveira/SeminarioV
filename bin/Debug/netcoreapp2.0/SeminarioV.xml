@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SeminarioV</name>
+    </assembly>
+    <members>
+        <member name="T:SeminarioV.Controllers.ValuesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SeminarioV.Controllers.ValuesController.Get">
+            GET api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.ValuesController.Get(System.Int32)">
+            GET api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.ValuesController.Post(System.String)">
+            POST api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.ValuesController.Put(System.Int32,System.String)">
+            PUT api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.ValuesController.Delete(System.Int32)">
+            DELETE api/values/5
+        </member>
+        <member name="T:SeminarioV.Program">
+            programa inicial
+        </member>
+        <member name="M:SeminarioV.Program.Main(System.String[])">
+            main
+        </member>
+        <member name="M:SeminarioV.Program.BuildWebHost(System.String[])">
+            builder da inicialização
+        </member>
+        <member name="T:SeminarioV.Startup">
+            
+        </member>
+        <member name="M:SeminarioV.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:SeminarioV.Startup.Configuration">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SeminarioV.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:SeminarioV.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

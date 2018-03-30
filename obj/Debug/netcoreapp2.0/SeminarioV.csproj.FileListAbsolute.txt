@@ -1,0 +1,9 @@
+C:\git_claudionei\SeminarioV\bin\Debug\netcoreapp2.0\SeminarioV.deps.json
+C:\git_claudionei\SeminarioV\bin\Debug\netcoreapp2.0\SeminarioV.runtimeconfig.json
+C:\git_claudionei\SeminarioV\bin\Debug\netcoreapp2.0\SeminarioV.runtimeconfig.dev.json
+C:\git_claudionei\SeminarioV\bin\Debug\netcoreapp2.0\SeminarioV.dll
+C:\git_claudionei\SeminarioV\bin\Debug\netcoreapp2.0\SeminarioV.pdb
+C:\git_claudionei\SeminarioV\obj\Debug\netcoreapp2.0\SeminarioV.csproj.CoreCompileInputs.cache
+C:\git_claudionei\SeminarioV\obj\Debug\netcoreapp2.0\SeminarioV.dll
+C:\git_claudionei\SeminarioV\obj\Debug\netcoreapp2.0\SeminarioV.pdb
+C:\git_claudionei\SeminarioV\bin\Debug\netcoreapp2.0\SeminarioV.xml

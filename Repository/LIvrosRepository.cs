@@ -14,6 +14,9 @@ namespace SeminarioV.Repository
     {
         Livros GetByCodigo(int id);
         List<Livros> Get();
+        void Novo(Livros livro);
+        void Editar(Livros livro);
+        void Excluir(int id);
     }
 
     /// <summary>
@@ -23,12 +26,55 @@ namespace SeminarioV.Repository
     {
         public Livros GetByCodigo(int id)
         {
-            return new Livros();
+            var livro = new Models.Livros();
+            using (var db = new SeminarioVDbContext())
+            {
+                livro = db.Livros
+                                .Where(b => b.Id == id)
+                                .FirstOrDefault();
+            }
+            return livro;
         }
+
         public List<Livros> Get()
         {
             var lista = new List<Livros>();
+            using (var db = new SeminarioVDbContext())
+            {
+                lista = db.Livros.ToList();
+            }
             return lista;
+        }
+
+        public void Novo(Livros livro)
+        {
+            using (var db = new SeminarioVDbContext())
+            {
+                db.Livros.Add(livro);
+                db.SaveChanges();
+            }
+        }
+
+        void Editar(Livros livro)
+        {
+            using (var db = new SeminarioVDbContext())
+            {
+                db.Livros.Update(livro);
+                db.SaveChanges();
+            }
+        }
+
+        void Excluir(int id)
+        {
+            using (var db = new SeminarioVDbContext())
+            {
+                var livro = db.Livros
+                                .Where(b => b.Id == id)
+                                .FirstOrDefault();
+
+                db.Livros.Remove(livro);
+                db.SaveChanges();
+            }
         }
     }
 }

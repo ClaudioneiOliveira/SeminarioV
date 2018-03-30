@@ -73,6 +73,16 @@
         <member name="M:SeminarioV.Program.BuildWebHost(System.String[])">
             builder da inicialização
         </member>
+        <member name="T:SeminarioV.Repository.ILivrosRepository">
+            <summary>
+            ILivrosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.LivrosRepository">
+            <summary>
+            LivrosRepository
+            </summary>
+        </member>
         <member name="T:SeminarioV.Startup">
             
         </member>

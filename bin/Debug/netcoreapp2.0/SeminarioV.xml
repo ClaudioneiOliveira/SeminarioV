@@ -4,6 +4,46 @@
         <name>SeminarioV</name>
     </assembly>
     <members>
+        <member name="T:SeminarioV.Controllers.LivrosController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SeminarioV.Controllers.LivrosController.GetLivros">
+            GET api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.LivrosController.GetLivro(System.Int32)">
+            GET api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.LivrosController.Post(SeminarioV.Models.Livros)">
+            POST api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.LivrosController.Put(System.Int32,SeminarioV.Models.Livros)">
+            PUT api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.LivrosController.Delete(System.Int32)">
+            DELETE api/values/5
+        </member>
+        <member name="T:SeminarioV.Controllers.UsuariosController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SeminarioV.Controllers.UsuariosController.GetUsuarios">
+            GET api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.UsuariosController.GetUsuario(System.Int32)">
+            GET api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.UsuariosController.Post(SeminarioV.Models.Usuarios)">
+            POST api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.UsuariosController.Put(System.Int32,SeminarioV.Models.Usuarios)">
+            PUT api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.UsuariosController.Delete(System.Int32)">
+            DELETE api/values/5
+        </member>
         <member name="T:SeminarioV.Controllers.ValuesController">
             <summary>
             

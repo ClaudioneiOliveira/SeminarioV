@@ -10,31 +10,31 @@ namespace SeminarioV.Controllers
     /// 
     /// </summary>
     [Route("api/[controller]")]
-    public class LivrosController : Controller
+    public class UsuariosController : Controller
     {
         /// GET api/values
         [HttpGet]
-        public IEnumerable<string> GetLivros()
+        public IEnumerable<string> GetUsuarios()
         {
             return new string[] { "value1", "value2" };
         }
 
         /// GET api/values/5
         [HttpGet("{id}")]
-        public string GetLivro(int id)
+        public string GetUsuario(int id)
         {
             return "value";
         }
 
         /// POST api/values
         [HttpPost]
-        public void Post([FromBody] Models.Livros value)
+        public void Post([FromBody] Models.Usuarios value)
         {
         }
 
         /// PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Models.Livros value)
+        public void Put(int id, [FromBody]Models.Usuarios value)
         {
         }
 

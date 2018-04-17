@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,31 +10,31 @@ namespace SeminarioV.Controllers
     /// 
     /// </summary>
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class EditorasController : Controller
     {
         /// GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> GetEditoras()
         {
             return new string[] { "value1", "value2" };
         }
 
         /// GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string GetEditora(int id)
         {
             return "value";
         }
 
         /// POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody] Models.Editoras value)
         {
         }
 
         /// PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Models.Editoras value)
         {
         }
 

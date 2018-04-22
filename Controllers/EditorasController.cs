@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SeminarioV.Models;
+using SeminarioV.Repository;
 
 namespace SeminarioV.Controllers
 {
@@ -12,24 +14,26 @@ namespace SeminarioV.Controllers
     [Route("api/[controller]")]
     public class EditorasController : Controller
     {
+        public EditorasRepository editora = new EditorasRepository();
         /// GET api/values
         [HttpGet]
-        public IEnumerable<string> GetEditoras()
+        public List<Editoras> GetEditoras()
         {
-            return new string[] { "value1", "value2" };
+             return editora.Get();
         }
 
         /// GET api/values/5
         [HttpGet("{id}")]
-        public string GetEditora(int id)
+        public Editoras GetEditora(int id)
         {
-            return "value";
+            return editora.GetByCodigo(id);
         }
 
         /// POST api/values
         [HttpPost]
         public void Post([FromBody] Models.Editoras value)
         {
+            editora.Novo(value);
         }
 
         /// PUT api/values/5

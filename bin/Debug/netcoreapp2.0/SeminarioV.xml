@@ -4,6 +4,46 @@
         <name>SeminarioV</name>
     </assembly>
     <members>
+        <member name="T:SeminarioV.Controllers.EditorasController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SeminarioV.Controllers.EditorasController.GetEditoras">
+            GET api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.EditorasController.GetEditora(System.Int32)">
+            GET api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.EditorasController.Post(SeminarioV.Models.Editoras)">
+            POST api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.EditorasController.Put(System.Int32,SeminarioV.Models.Editoras)">
+            PUT api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.EditorasController.Delete(System.Int32)">
+            DELETE api/values/5
+        </member>
+        <member name="T:SeminarioV.Controllers.EmprestimoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SeminarioV.Controllers.EmprestimoController.GetEmprestimos">
+            GET api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.EmprestimoController.GetEmprestimo(System.Int32)">
+            GET api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.EmprestimoController.Post(SeminarioV.Models.Emprestimos)">
+            POST api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.EmprestimoController.Put(System.Int32,SeminarioV.Models.Emprestimos)">
+            PUT api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.EmprestimoController.Delete(System.Int32)">
+            DELETE api/values/5
+        </member>
         <member name="T:SeminarioV.Controllers.LivrosController">
             <summary>
             
@@ -44,26 +84,6 @@
         <member name="M:SeminarioV.Controllers.UsuariosController.Delete(System.Int32)">
             DELETE api/values/5
         </member>
-        <member name="T:SeminarioV.Controllers.ValuesController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SeminarioV.Controllers.ValuesController.Get">
-            GET api/values
-        </member>
-        <member name="M:SeminarioV.Controllers.ValuesController.Get(System.Int32)">
-            GET api/values/5
-        </member>
-        <member name="M:SeminarioV.Controllers.ValuesController.Post(System.String)">
-            POST api/values
-        </member>
-        <member name="M:SeminarioV.Controllers.ValuesController.Put(System.Int32,System.String)">
-            PUT api/values/5
-        </member>
-        <member name="M:SeminarioV.Controllers.ValuesController.Delete(System.Int32)">
-            DELETE api/values/5
-        </member>
         <member name="T:SeminarioV.Program">
             programa inicial
         </member>
@@ -73,6 +93,36 @@
         <member name="M:SeminarioV.Program.BuildWebHost(System.String[])">
             builder da inicialização
         </member>
+        <member name="T:SeminarioV.Repository.IControleEmprestimosRepository">
+            <summary>
+            IControleEmprestimosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.ControleEmprestimosRepository">
+            <summary>
+            ControleEmprestimosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.IEditorasRepository">
+            <summary>
+            IEditorasRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.EditorasRepository">
+            <summary>
+            EditorasRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.IEmprestimosRepository">
+            <summary>
+            IEmprestimosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.EmprestimosRepository">
+            <summary>
+            EmprestimosRepository
+            </summary>
+        </member>
         <member name="T:SeminarioV.Repository.ILivrosRepository">
             <summary>
             ILivrosRepository
@@ -81,6 +131,36 @@
         <member name="T:SeminarioV.Repository.LivrosRepository">
             <summary>
             LivrosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.IMultaEmprestimosRepository">
+            <summary>
+            IMultasEmprestimosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.MultasEmprestimosRepository">
+            <summary>
+            MultasEmprestimosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.IUsuariosRepository">
+            <summary>
+            IUsuariosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Repository.UsuariosRepository">
+            <summary>
+            UsuariosRepository
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Service.IEmprestimoService">
+            <summary>
+            IEmprestimoService
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Service.EmprestimoService">
+            <summary>
+            EmprestimoService
             </summary>
         </member>
         <member name="T:SeminarioV.Startup">

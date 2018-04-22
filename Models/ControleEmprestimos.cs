@@ -10,5 +10,7 @@ namespace SeminarioV.Models
         public DateTime DataRetirada { get; set; }
         public DateTime? DataPrevistaDevolucao { get; set; }
         public DateTime? DataRealDevolucao { get; set; }
+
+        public Emprestimos IdEmprestimoNavigation { get; set; }
     }
 }

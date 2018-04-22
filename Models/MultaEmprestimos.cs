@@ -9,5 +9,7 @@ namespace SeminarioV.Models
         public int IdEmprestimo { get; set; }
         public decimal? Valor { get; set; }
         public DateTime? Data { get; set; }
+
+        public Emprestimos IdEmprestimoNavigation { get; set; }
     }
 }

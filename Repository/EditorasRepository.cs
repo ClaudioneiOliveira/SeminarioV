@@ -46,11 +46,11 @@ namespace SeminarioV.Repository
             return lista;
         }
 
-        public void Novo(Editoras livro)
+        public void Novo(Editoras editora)
         {
             using (var db = new SeminarioVDbContext())
             {
-                db.Editoras.Add(livro);
+                db.Editoras.Add(editora);
                 db.SaveChanges();
             }
         }

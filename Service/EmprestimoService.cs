@@ -12,8 +12,8 @@ namespace SeminarioV.Service
     /// </summary>
     public interface IEmprestimoService
     {
-        void Novo(Emprestimo emprestimo);
-        void Devolucao(Emprestimo emprestimo);
+        void Novo(Emprestimos emprestimo);
+        void Devolucao(Emprestimos emprestimo);
         bool LivroDisponivel(int id);
     }
 
@@ -22,19 +22,19 @@ namespace SeminarioV.Service
     /// </summary>
     public class EmprestimoService
     {
-        public void Novo(Emprestimo operacao)
+        public void Novo(Emprestimos operacao)
         {
             var emprestimo = new EmprestimosRepository();
-            emprestimo.Novo(operacao);
+            //emprestimo.Novo(operacao);
         }
 
-        public void Devolucao(Emprestimo emprestimo)
+        public void Devolucao(Emprestimos emprestimo)
         {
 
         }
         public bool LivroDisponivel(int id)
         {
-
+            return true;
         }
     }
 }

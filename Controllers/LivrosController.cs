@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SeminarioV.Models;
+using SeminarioV.Repository;
 
 namespace SeminarioV.Controllers
 {
@@ -12,24 +14,26 @@ namespace SeminarioV.Controllers
     [Route("api/[controller]")]
     public class LivrosController : Controller
     {
+        public LivrosRepository livros = new LivrosRepository();
         /// GET api/values
         [HttpGet]
-        public IEnumerable<string> GetLivros()
+        public List<Livros> GetLivros()
         {
-            return new string[] { "value1", "value2" };
+            return livros.Get();
         }
 
         /// GET api/values/5
         [HttpGet("{id}")]
-        public string GetLivro(int id)
+        public Livros GetLivro(int id)
         {
-            return "value";
+            return livros.GetByCodigo(id);
         }
 
         /// POST api/values
         [HttpPost]
         public void Post([FromBody] Models.Livros value)
         {
+            livros.Novo(value);
         }
 
         /// PUT api/values/5

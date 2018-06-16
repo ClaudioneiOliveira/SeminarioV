@@ -1,9 +1,9 @@
 //Jquery Ready
 $(document).ready(function(){
-
+	
 	//Load Data
 	var dataSet = [];
-	var restAPI = "api/Editoras";
+	var restAPI = "api/Livros";
 	$.getJSON( restAPI )
 	.done(function( data ) {
 		$.each( data, function( i, result ) {
@@ -13,15 +13,15 @@ $(document).ready(function(){
 			newArray.push('<button type="button" name="delete" id="' + result.id + '" class="btn btn-danger btn-xs delete">Excluir</button>');
 			dataSet.push(newArray);
 		});
-		$('#editoras_data').DataTable({
+		$('#livros_data').DataTable({
 			"data": dataSet
 		});
 	});
 
 	//New Button
 	$('#add_button').click(function(){
-		$('#editora_form')[0].reset();
-		$('.modal-title').text("Nova Editora");
+		$('#livro_form')[0].reset();
+		$('.modal-title').text("Novo Livro");
 		$('#action').val("Add");
 		$('#operation').val("Add");
 		$('#user_uploaded_image').html('');
@@ -30,15 +30,15 @@ $(document).ready(function(){
 	//Edit Button
 	$(document).on('click', '.update', function(){
 		$.ajax({
-			url:'api/Editoras/' + $(this).attr("id"),
+			url:'api/Livros/' + $(this).attr("id"),
 			method:"GET",
 			dataType:"json",
 			success:function(data)
 			{
-				$('#editora_modal').modal('show');
-				$('#editora_nome').val(data.nome);
-				$('.modal-title').text("Alterar Editora");
-				$('#editora_id').val(editora_id);
+				$('#livro_modal').modal('show');
+				$('#livro_nome').val(data.nome);
+				$('.modal-title').text("Alterar Livro");
+				$('#livro_id').val(livro_id);
 				$('#action').val("Edit");
 				$('#operation').val("Edit");
 			}

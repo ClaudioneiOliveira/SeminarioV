@@ -29,17 +29,17 @@
 					</div><!-- /.container-fluid -->
 				</nav><!-- /.navbar -->
 
-				<!-- EDITORAS Data Table -->
+				<!-- LIVROS Data Table -->
 				<div class="table-responsive">
 					<br />
 					<div align="right">
-						<button type="button" id="add_button" data-toggle="modal" data-target="#editora_modal" class="btn btn-info btn-lg">Novo</button>
+						<button type="button" id="add_button" data-toggle="modal" data-target="#livro_modal" class="btn btn-info btn-lg">Novo</button>
 					</div>
 					<br /><br />
-					<table id="editoras_data" class="table table-bordered table-striped">
+					<table id="livros_data" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th width="80%">Editora</th>
+								<th width="80%">Livro</th>
 								<th width="10%">Editar</th>
 								<th width="10%">Excluir</th>
 							</tr>
@@ -47,21 +47,21 @@
 					</table>
 				</div>
 				
-				<div id="editora_modal" class="modal fade">
+				<div id="livro_modal" class="modal fade">
 					<div class="modal-dialog">
-						<form method="post" id="editora_form" enctype="multipart/form-data">
+						<form method="post" id="livro_form" enctype="multipart/form-data">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Adicionar Editora</h4>
+									<h4 class="modal-title">Adicionar Livro</h4>
 								</div>
 								<div class="modal-body">
 									<label>Nome</label>
-									<input type="text" name="editora_nome" id="editora_nome" class="form-control" />
+									<input type="text" name="livro_nome" id="livro_nome" class="form-control" />
 									<br />
 								</div>
 								<div class="modal-footer">
-									<input type="hidden" name="editora_id" id="editora_id" />
+									<input type="hidden" name="livro_id" id="livro_id" />
 									<input type="hidden" name="operation" id="operation" />
 									<input type="submit" name="action" id="action" class="btn btn-success" value="Salvar" />
 									<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -70,9 +70,9 @@
 						</form>
 					</div>
 				</div>
-				<!-- EDITORAS Data Table End -->
-				
+				<!-- LIVROS Data Table End -->
+
 			</div><!-- end container box -->
 		</body>
 	</html>
-	<script src="js/editoras.js" ></script>
+	<script src="js/livros.js" ></script>

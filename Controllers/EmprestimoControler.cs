@@ -40,12 +40,14 @@ namespace SeminarioV.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Models.Emprestimos value)
         {
+            emprestimo.Editar(value);
         }
 
         /// DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            emprestimo.Excluir(id);
         }
     }
 }

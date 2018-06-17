@@ -98,7 +98,6 @@ namespace SeminarioV
                     name: "default",
                     template: "{controller=Home}/{action=Index}");
             });
-            //app.UseDefaultFiles(new DefaultFilesOptions { DefaultFileNames = new List<string> { "index.html" } });
         }
     }
 }

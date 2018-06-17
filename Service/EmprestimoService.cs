@@ -25,16 +25,34 @@ namespace SeminarioV.Service
         public void Novo(Emprestimos operacao)
         {
             var emprestimo = new EmprestimosRepository();
-            //emprestimo.Novo(operacao);
+            var livro = new LivrosRepository();
+            if (LivroDisponivel(operacao.IdLivro))
+            {
+                operacao.DataPrevistaDevolucao = DateTime.Now.AddDays(7);
+                operacao.DataRealDevolucao = null;
+                operacao.DataRetirada = DateTime.Now;
+                emprestimo.Novo(operacao);
+            }
         }
 
-        public void Devolucao(Emprestimos emprestimo)
+        public void Devolucao(int id)
         {
-
+            var emprRepo = new EmprestimosRepository();
+            var emp = emprRepo.GetByCodigo(id);
+            emp.DataRealDevolucao = DateTime.Now;
+            emprRepo.Editar(emp);
         }
         public bool LivroDisponivel(int id)
         {
-            return true;
+            var livro = new LivrosRepository();
+            var livroDisp = livro.GetByCodigo(id);
+            if (livroDisp == null)
+            {
+                return false;
+            }
+            var emprest = new EmprestimosRepository();
+            var disp = emprest.LivroEmprestado(id);
+            return disp;
         }
     }
 }

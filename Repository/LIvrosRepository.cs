@@ -55,7 +55,7 @@ namespace SeminarioV.Repository
             }
         }
 
-        void Editar(Livros livro)
+        public void Editar(Livros livro)
         {
             using (var db = new SeminarioVDbContext())
             {
@@ -64,7 +64,7 @@ namespace SeminarioV.Repository
             }
         }
 
-        void Excluir(int id)
+        public void Excluir(int id)
         {
             using (var db = new SeminarioVDbContext())
             {

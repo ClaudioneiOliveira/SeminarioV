@@ -12,42 +12,42 @@ namespace SeminarioV.Controllers
     /// 
     /// </summary>
     [Route("api/[controller]")]
-    public class EditorasController : Controller
+    public class MultaEmprestimosController : Controller
     {
-        public EditorasRepository editora = new EditorasRepository();
+        public MultasEmprestimosRepository multaEmprestimos = new MultasEmprestimosRepository();
         /// GET api/values
         [HttpGet]
-        public List<Editoras> GetEditoras()
+        public List<MultaEmprestimos> GetMultaEmprestimo()
         {
-             return editora.Get();
+            return multaEmprestimos.Get();
         }
 
         /// GET api/values/5
         [HttpGet("{id}")]
-        public Editoras GetEditora(int id)
+        public MultaEmprestimos GetUsuario(int id)
         {
-            return editora.GetByCodigo(id);
+            return multaEmprestimos.GetByCodigo(id);
         }
 
         /// POST api/values
         [HttpPost]
-        public void Post([FromBody] Models.Editoras value)
+        public void Post([FromBody] Models.MultaEmprestimos value)
         {
-            editora.Novo(value);
+            multaEmprestimos.Novo(value);
         }
 
         /// PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Models.Editoras value)
+        public void Put(int id, [FromBody]Models.MultaEmprestimos value)
         {
-            editora.Editar(value);
+            multaEmprestimos.Editar(value);
         }
 
         /// DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            editora.Excluir(id);
+            multaEmprestimos.Excluir(id);
         }
     }
 }

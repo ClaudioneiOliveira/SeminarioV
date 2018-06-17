@@ -64,6 +64,26 @@
         <member name="M:SeminarioV.Controllers.LivrosController.Delete(System.Int32)">
             DELETE api/values/5
         </member>
+        <member name="T:SeminarioV.Controllers.MultaEmprestimosController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SeminarioV.Controllers.MultaEmprestimosController.GetMultaEmprestimo">
+            GET api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.MultaEmprestimosController.GetUsuario(System.Int32)">
+            GET api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.MultaEmprestimosController.Post(SeminarioV.Models.MultaEmprestimos)">
+            POST api/values
+        </member>
+        <member name="M:SeminarioV.Controllers.MultaEmprestimosController.Put(System.Int32,SeminarioV.Models.MultaEmprestimos)">
+            PUT api/values/5
+        </member>
+        <member name="M:SeminarioV.Controllers.MultaEmprestimosController.Delete(System.Int32)">
+            DELETE api/values/5
+        </member>
         <member name="T:SeminarioV.Controllers.UsuariosController">
             <summary>
             
@@ -83,6 +103,62 @@
         </member>
         <member name="M:SeminarioV.Controllers.UsuariosController.Delete(System.Int32)">
             DELETE api/values/5
+        </member>
+        <member name="T:SeminarioV.Models.Emprestimos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SeminarioV.Models.SeminarioVDbContext">
+            
+        </member>
+        <member name="P:SeminarioV.Models.SeminarioVDbContext.ControleEmprestimos">
+            <summary>
+            inicia o controle de emprestimos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SeminarioV.Models.SeminarioVDbContext.Editoras">
+            <summary>
+            inicia a tabela de edtoras
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SeminarioV.Models.SeminarioVDbContext.Emprestimos">
+            <summary>
+            inicia a tabela de emprestimos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SeminarioV.Models.SeminarioVDbContext.Livros">
+            <summary>
+            inicia a tabela de livros
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SeminarioV.Models.SeminarioVDbContext.MultaEmprestimos">
+            <summary>
+            inicia a tabela de multas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SeminarioV.Models.SeminarioVDbContext.Usuarios">
+            <summary>
+            Inicia a tabela de usuarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SeminarioV.Models.SeminarioVDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
+        <member name="M:SeminarioV.Models.SeminarioVDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
         </member>
         <member name="T:SeminarioV.Program">
             programa inicial

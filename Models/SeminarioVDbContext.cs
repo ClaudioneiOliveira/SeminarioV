@@ -4,23 +4,56 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SeminarioV.Models
 {
+    ///
     public partial class SeminarioVDbContext : DbContext
     {
+        /// <summary>
+        /// inicia o controle de emprestimos
+        /// </summary>
+        /// <returns></returns>
         public virtual DbSet<ControleEmprestimos> ControleEmprestimos { get; set; }
+        /// <summary>
+        /// inicia a tabela de edtoras
+        /// </summary>
+        /// <returns></returns>
         public virtual DbSet<Editoras> Editoras { get; set; }
+        /// <summary>
+        /// inicia a tabela de emprestimos
+        /// </summary>
+        /// <returns></returns>
         public virtual DbSet<Emprestimos> Emprestimos { get; set; }
+        /// <summary>
+        /// inicia a tabela de livros
+        /// </summary>
+        /// <returns></returns>
         public virtual DbSet<Livros> Livros { get; set; }
+        /// <summary>
+        /// inicia a tabela de multas
+        /// </summary>
+        /// <returns></returns>
         public virtual DbSet<MultaEmprestimos> MultaEmprestimos { get; set; }
+        /// <summary>
+        /// Inicia a tabela de usuarios
+        /// </summary>
+        /// <returns></returns>
         public virtual DbSet<Usuarios> Usuarios { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=SeminarioV;user id=SeminarioV;password=SeminarioV1;");
+                optionsBuilder.UseSqlServer(@"Server=192.163.200.48,1433;Database=LDASNEV_UNIASSELVI;user id=uniasselvi;password=Ygj4g0&6;");
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ControleEmprestimos>(entity =>
@@ -40,12 +73,6 @@ namespace SeminarioV.Models
                     .HasColumnType("datetime");
 
                 entity.Property(e => e.IdEmprestimo).HasColumnName("idEmprestimo");
-
-                entity.HasOne(d => d.IdEmprestimoNavigation)
-                    .WithMany(p => p.ControleEmprestimos)
-                    .HasForeignKey(d => d.IdEmprestimo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ControleEmprestimos_Emprestimos");
             });
 
             modelBuilder.Entity<Editoras>(entity =>
@@ -77,18 +104,6 @@ namespace SeminarioV.Models
                 entity.Property(e => e.IdLivro).HasColumnName("idLivro");
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
-
-                entity.HasOne(d => d.IdLivroNavigation)
-                    .WithMany(p => p.Emprestimos)
-                    .HasForeignKey(d => d.IdLivro)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Emprestimos_Livros");
-
-                entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithMany(p => p.Emprestimos)
-                    .HasForeignKey(d => d.IdUsuario)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Emprestimos_Usuarios");
             });
 
             modelBuilder.Entity<Livros>(entity =>
@@ -120,12 +135,6 @@ namespace SeminarioV.Models
                     .HasColumnName("resenha")
                     .HasMaxLength(1000)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.EditoraNavigation)
-                    .WithMany(p => p.Livros)
-                    .HasForeignKey(d => d.Editora)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Livros_Editoras");
             });
 
             modelBuilder.Entity<MultaEmprestimos>(entity =>
@@ -141,12 +150,6 @@ namespace SeminarioV.Models
                 entity.Property(e => e.Valor)
                     .HasColumnName("valor")
                     .HasColumnType("decimal(12, 2)");
-
-                entity.HasOne(d => d.IdEmprestimoNavigation)
-                    .WithMany(p => p.MultaEmprestimos)
-                    .HasForeignKey(d => d.IdEmprestimo)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_MultaEmprestimos_Emprestimos");
             });
 
             modelBuilder.Entity<Usuarios>(entity =>

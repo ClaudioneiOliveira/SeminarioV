@@ -6,7 +6,6 @@ using SeminarioV.Models;
 
 namespace SeminarioV.Repository
 {
-
     /// <summary>
     /// IEmprestimosRepository
     /// </summary>
@@ -17,12 +16,13 @@ namespace SeminarioV.Repository
         void Novo(Emprestimos livro);
         void Editar(Emprestimos livro);
         void Excluir(int id);
+        bool LivroEmprestado(int id);
     }
 
     /// <summary>
     /// EmprestimosRepository
     /// </summary>
-    public class EmprestimosRepository
+    public class EmprestimosRepository : IEmprestimosRepository
     {
         public Emprestimos GetByCodigo(int id)
         {
@@ -34,6 +34,20 @@ namespace SeminarioV.Repository
                                 .FirstOrDefault();
             }
             return livro;
+        }
+
+        public bool LivroEmprestado(int id)
+        {
+            var livro = new Models.Emprestimos();
+            using (var db = new SeminarioVDbContext())
+            {
+                livro = db.Emprestimos
+                                .Where(b => b.IdLivro == id 
+                                && b.DataRealDevolucao != null
+                                && b.DataRealDevolucao <= DateTime.Now)
+                                .FirstOrDefault();
+            }
+            return livro != null ? true : false;
         }
 
         public List<Emprestimos> Get()
@@ -55,7 +69,7 @@ namespace SeminarioV.Repository
             }
         }
 
-        void Editar(Emprestimos livro)
+        public void Editar(Emprestimos livro)
         {
             using (var db = new SeminarioVDbContext())
             {
@@ -64,7 +78,7 @@ namespace SeminarioV.Repository
             }
         }
 
-        void Excluir(int id)
+        public void Excluir(int id)
         {
             using (var db = new SeminarioVDbContext())
             {

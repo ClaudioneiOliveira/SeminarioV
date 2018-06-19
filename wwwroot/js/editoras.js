@@ -2,22 +2,25 @@
 $(document).ready(function(){
 
 	//Load Data
-	var dataSet = [];
-	var restAPI = "api/Editoras";
-	$.getJSON( restAPI )
-	.done(function( data ) {
-		$.each( data, function( i, result ) {
-			var newArray = [];
-			newArray.push(result.nome);
-			newArray.push('<button type="button" name="update" id="' + result.id + '" class="btn btn-warning btn-xs update">Editar</button>');
-			newArray.push('<button type="button" name="delete" id="' + result.id + '" class="btn btn-danger btn-xs delete">Excluir</button>');
-			dataSet.push(newArray);
-		});
-		$('#editoras_data').DataTable({
-			"data": dataSet
-		});
+	var dataTable = $('#editoras_data').DataTable({
+		"processing":true,
+		"serverSide":false,
+		"order":[],
+		"ajax":	{
+			url:"/api/Editoras",
+			dataSrc:''
+		},
+		columns: [
+			{ data: 'nome' },
+			{"mRender": function ( data, type, row ) {
+                        return '<button type="button" name="update" id="' + row.id + '" class="btn btn-warning btn-xs update">Editar</button>';}
+            },
+			{"mRender": function ( data, type, row ) {
+                        return '<button type="button" name="delete" id="' + row.id + '" class="btn btn-danger btn-xs delete">Excluir</button>';}
+            }
+		]
 	});
-
+	
 	//New Button
 	$('#add_button').click(function(){
 		$('#editora_form')[0].reset();
@@ -29,8 +32,9 @@ $(document).ready(function(){
 
 	//Edit Button
 	$(document).on('click', '.update', function(){
+		var editora_id = $(this).attr("id")
 		$.ajax({
-			url:'api/Editoras/' + $(this).attr("id"),
+			url:'api/Editoras/' + editora_id,
 			method:"GET",
 			dataType:"json",
 			success:function(data)
@@ -45,21 +49,70 @@ $(document).ready(function(){
 		})
 	});
 
-	//Delete Button **implementar
+	//Delete Record
 	$(document).on('click', '.delete', function(){
-		var id = $(this).attr("id");
-		if(confirm("Confirma a exclusão?"))
-		{
-			alert("Excluído!")
+		if(confirm("Confirma a exclusão do item?")) {
+			$.ajax({
+				url:'api/Editoras/' + $(this).attr("id"),
+				method:"DELETE",
+				success:function(data)
+				{
+					alert('Excluído!')
+					dataTable.ajax.reload();
+				}
+			});
 		}
-		else
+			else
 		{
 			return false; 
 		}
 	});
-
-	//Edit Save **implementar
-
-	//Novo Save **implementar
+	
+	//Create or Update Record
+	$(document).on('submit', '#editora_form', function(event){
+		event.preventDefault();
+		var editora_id = $("#editora_id").val();
+		var editora_nome = $("#editora_nome").val();
+		var url = '';
+		var type = '';
+		var operation = $('#operation').val();
+		
+		if(operation=='Add') {
+			var items = {
+				id: 0,
+				nome: editora_nome
+			}
+			url = 'api/Editoras'
+			type = 'POST'
+		}
+		
+		if(operation=='Edit') {
+			var items = {
+				id: editora_id,
+				nome: editora_nome
+			}
+			url = 'api/Editoras/' + editora_id
+			type = 'PUT'
+		}
+		
+		if(editora_nome != '') {
+			$.ajax({
+				url: url,
+				type: type,
+				dataType: 'json',
+				contentType: 'application/json',
+				data: JSON.stringify(items),
+				success:function(data) {
+					$('#editora_form')[0].reset();
+					$('#editora_modal').modal('hide');
+					dataTable.ajax.reload();
+				}
+			});
+		}
+			else
+		{
+			alert("Todos os campos sao necessarios");
+		}
+	});
 
 });

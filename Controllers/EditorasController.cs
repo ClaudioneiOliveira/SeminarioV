@@ -29,18 +29,19 @@ namespace SeminarioV.Controllers
             return editora.GetByCodigo(id);
         }
 
-        /// POST api/values
         [HttpPost]
-        public void Post([FromBody] Models.Editoras value)
+        public IActionResult Post([FromBody] Models.Editoras value)
         {
             editora.Novo(value);
+            return Created("Criado",value);
         }
 
         /// PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Models.Editoras value)
+        public IActionResult Put(int id, [FromBody] Models.Editoras value)
         {
             editora.Editar(value);
+            return Ok(value);
         }
 
         /// DELETE api/values/5

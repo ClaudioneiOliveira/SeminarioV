@@ -1,0 +1,17 @@
+Models/SeminarioVDbContext.cs
+appsettings.Development.json
+obj/SeminarioV.csproj.nuget.g.targets
+bin/Debug/netcoreapp2.0/SeminarioV.dll
+bin/Debug/netcoreapp2.0/SeminarioV.pdb
+bin/Debug/netcoreapp2.0/SeminarioV.deps.json
+bin/Debug/netcoreapp2.0/SeminarioV.runtimeconfig.dev.json
+obj/SeminarioV.csproj.nuget.cache
+obj/SeminarioV.csproj.nuget.g.props
+obj/project.assets.json
+obj/Debug/netcoreapp2.0/SeminarioV.dll
+obj/Debug/netcoreapp2.0/SeminarioV.pdb
+obj/Debug/netcoreapp2.0/SeminarioV.assets.cache
+obj/Debug/netcoreapp2.0/SeminarioV.csproj.CoreCompileInputs.cache
+obj/Debug/netcoreapp2.0/SeminarioV.csproj.FileListAbsolute.txt
+obj/Debug/netcoreapp2.0/SeminarioV.csprojAssemblyReference.cache
+obj/Debug/netcoreapp2.0/SeminarioV.csprojResolveAssemblyReference.cache

@@ -49,7 +49,7 @@
 				
 				<div id="livro_modal" class="modal fade">
 					<div class="modal-dialog">
-						<form method="post" id="livro_form" enctype="multipart/form-data">
+						<form method="post" id="livro_form">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -58,6 +58,18 @@
 								<div class="modal-body">
 									<label>Nome</label>
 									<input type="text" name="livro_nome" id="livro_nome" class="form-control" />
+									<label>ISBN</label>
+									<input type="text" name="livro_isbn" id="livro_isbn" class="form-control" />
+									<label>Editora</label>
+									<input type="text" name="livro_editora" id="livro_editora" class="form-control" />
+									<label>Páginas</label>
+									<input type="text" name="livro_paginas" id="livro_paginas" class="form-control" />
+									<label>Ano</label>
+									<input type="text" name="livro_ano" id="livro_ano" class="form-control" />
+									<label>Código de Barras</label>
+									<input type="text" name="livro_codigo" id="livro_codigo" class="form-control" />
+									<label>Resenha</label>
+									<input type="textarea" name="livro_resenha" id="livro_resenha" class="form-control" />									
 									<br />
 								</div>
 								<div class="modal-footer">
@@ -71,7 +83,7 @@
 					</div>
 				</div>
 				<!-- LIVROS Data Table End -->
-
+				
 			</div><!-- end container box -->
 		</body>
 	</html>

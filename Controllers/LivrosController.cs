@@ -31,16 +31,18 @@ namespace SeminarioV.Controllers
 
         /// POST api/values
         [HttpPost]
-        public void Post([FromBody] Models.Livros value)
+        public IActionResult Post([FromBody] Models.Livros value)
         {
             livros.Novo(value);
+            return Created("Criado",value);
         }
 
         /// PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Models.Livros value)
+        public IActionResult Put(int id, [FromBody]Models.Livros value)
         {
             livros.Editar(value);
+            return Ok(value);
         }
 
         /// DELETE api/values/5

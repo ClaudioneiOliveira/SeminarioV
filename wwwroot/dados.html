@@ -1,0 +1,99 @@
+<html>
+	<head>
+		<title>IERGS - Seminario V</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+			<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+			<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+
+			<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+			<link rel="stylesheet" href="css/styles.css" />
+			
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+		</head>
+		<body>
+			<div class="container box">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<div class="navbar-header"><a class="navbar-brand" href="#">IERGS SEMINÁRIO V</a></div>
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li><a href="index.html">Editoras</a></li>
+								<li><a href="livros.html">Livros</a></li>
+								<li><a href="dados.html">Dados</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav><!-- /.navbar -->
+
+				<!-- Gráficos -->
+				<div class="container">
+					<canvas id="myChart"></canvas>
+				</div>
+				<script>
+					let myChart = document.getElementById('myChart').getContext('2d');
+
+					// Global Options
+					Chart.defaults.global.defaultFontFamily = 'Lato';
+					Chart.defaults.global.defaultFontSize = 18;
+					Chart.defaults.global.defaultFontColor = '#777';
+
+					let massPopChart = new Chart(myChart, {
+					  type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+					  data:{
+						labels:['Deitel', 'Packt Publishing', 'Bookman'],
+						datasets:[{
+						  label:'Livros Publicados',
+						  data:[
+							5,
+							9,
+							3,
+						  ],
+						  //backgroundColor:'green',
+						  backgroundColor:[
+							'rgba(255, 99, 132, 0.6)',
+							'rgba(54, 162, 235, 0.6)',
+							'rgba(255, 206, 86, 0.6)'
+						  ],
+						  borderWidth:1,
+						  borderColor:'#777',
+						  hoverBorderWidth:1,
+						  hoverBorderColor:'#000'
+						}]
+					  },
+					  options:{
+						title:{
+						  display:true,
+						  text:'Maiores Editoras por quantidade de Livros',
+						  fontSize:25
+						},
+						legend:{
+						  display:true,
+						  position:'right',
+						  labels:{
+							fontColor:'#000'
+						  }
+						},
+						layout:{
+						  padding:{
+							left:0,
+							right:0,
+							bottom:0,
+							top:0
+						  }
+						},
+						tooltips:{
+						  enabled:true
+						}
+					  }
+					});
+				  </script>
+				
+			</div><!-- end container box -->
+		</body>
+	</html>
+	<script src="js/livros.js" ></script>

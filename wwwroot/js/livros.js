@@ -1,8 +1,39 @@
 //Jquery Ready
 $(document).ready(function(){
-
+		
 	//Load Data
-	var dataTable = $('#livros_data').DataTable({
+	var editoras;
+	var dataTable;
+	
+	$.ajax({
+		url:'api/Editoras',
+		method:"GET",
+		dataType:"json",
+		success:function(data)
+		{
+			//load editoras
+			editoras = data
+			
+			//load combo
+			$('#livro_editora').append('<option value="0">Selecione</option>')
+			$.each(editoras, function(key, val){ 
+				$('#livro_editora').append('<option value="' + val.id + '">' + val.nome + '</option>');
+			});
+			
+			//load grid
+			dataTable = $('#livros_data').DataTable(tableConfig);
+		}
+	});
+	
+	//Lookup by id
+	var Lookup = function (arr,id) {
+		return arr.filter(function(i) {
+			return i.id === id;
+		});
+	}
+	
+	//Main table config
+	var tableConfig = {
 		"processing":true,
 		"serverSide":false,
 		"order":[],
@@ -11,6 +42,10 @@ $(document).ready(function(){
 			dataSrc:''
 		},
 		columns: [
+			{"mRender": function ( data, type, row ) {
+						var editora = Lookup(editoras,row.editora)
+						return (editora.length > 0) ? editora[0].nome : '';}
+            },
 			{ data: 'nome' },
 			{"mRender": function ( data, type, row ) {
                         return '<button type="button" name="update" id="' + row.id + '" class="btn btn-warning btn-xs update">Editar</button>';}
@@ -19,7 +54,7 @@ $(document).ready(function(){
                         return '<button type="button" name="delete" id="' + row.id + '" class="btn btn-danger btn-xs delete">Excluir</button>';}
             }
 		]
-	});
+	}
 	
 	//New Button
 	$('#add_button').click(function(){
@@ -42,7 +77,7 @@ $(document).ready(function(){
 				$('#livro_modal').modal('show');
 				$('#livro_nome').val(data.nome);
 				$('#livro_isbn').val(data.isbn);
-				$('#livro_editora').val(data.editora);
+				$('#livro_editora>[value=' + data.editora + ']').attr("selected", "true");
 				$('#livro_paginas').val(data.paginas);
 				$('#livro_ano').val(data.ano);
 				$('#livro_codigo').val(data.codBarras);
@@ -76,11 +111,13 @@ $(document).ready(function(){
 	
 	//Create or Update Record
 	$(document).on('submit', '#livro_form', function(event){
+		
 		event.preventDefault();
+		
 		var livro_id = $("#livro_id").val();
 		var livro_nome = $("#livro_nome").val();
 		var livro_isbn = $("#livro_isbn").val();
-		var livro_editora = $("#livro_editora").val();
+		var livro_editora = $("#livro_editora").find('option:selected').val();
 		var livro_paginas = $("#livro_paginas").val();
 		var livro_ano = $("#livro_ano").val();
 		var livro_codigo = $("#livro_codigo").val();
@@ -127,6 +164,7 @@ $(document).ready(function(){
 				contentType: 'application/json',
 				data: JSON.stringify(items),
 				success:function(data) {
+					$('#livro_editora>[value="0"]').attr("selected", "true");
 					$('#livro_form')[0].reset();
 					$('#livro_modal').modal('hide');
 					dataTable.ajax.reload();

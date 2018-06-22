@@ -22,8 +22,7 @@
 							<ul class="nav navbar-nav">
 								<li><a href="index.html">Editoras</a></li>
 								<li><a href="livros.html">Livros</a></li>
-								<li><a href="#">Empréstimos</a></li>
-								<li><a href="#">Usuários</a></li>
+								<li><a href="dados.html">Dados</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->
@@ -39,7 +38,8 @@
 					<table id="livros_data" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th width="80%">Livro</th>
+								<th width="20%">Editora</th>
+								<th width="60%">Livro</th>
 								<th width="10%">Editar</th>
 								<th width="10%">Excluir</th>
 							</tr>
@@ -61,7 +61,7 @@
 									<label>ISBN</label>
 									<input type="text" name="livro_isbn" id="livro_isbn" class="form-control" />
 									<label>Editora</label>
-									<input type="text" name="livro_editora" id="livro_editora" class="form-control" />
+									<select name="livro_editora" id="livro_editora" class="form-control"></select>
 									<label>Páginas</label>
 									<input type="text" name="livro_paginas" id="livro_paginas" class="form-control" />
 									<label>Ano</label>

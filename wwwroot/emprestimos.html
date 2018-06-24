@@ -29,39 +29,52 @@
 					</div><!-- /.container-fluid -->
 				</nav><!-- /.navbar -->
 
-				<!-- EDITORAS Data Table -->
+				<!-- EMPRÉSTIMOS Data Table -->
 				<div class="table-responsive">
 					<br />
 					<div align="right">
-						<button type="button" id="add_button" data-toggle="modal" data-target="#editora_modal" class="btn btn-info btn-lg">Novo</button>
+						<button type="button" id="add_button" data-toggle="modal" data-target="#emprestimo_modal" class="btn btn-info btn-lg">Novo Empréstimo</button>
 					</div>
 					<br /><br />
-					<table id="editoras_data" class="table table-bordered table-striped">
+					<table id="emprestimos_data" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th width="80%">Editora</th>
-								<th width="10%">Editar</th>
+								<th width="20%">Livro</th>
+								<th width="20%">Usuário</th>
+								<th width="10%">Data Emprestimo</th>
+								<th width="10%">Data Prevista</th>
+								<th width="10%">Data Devolução</th>
+								<th width="10%">Multa</th>
+								<th width="10%">Devolver</th>
 								<th width="10%">Excluir</th>
 							</tr>
 						</thead>
 					</table>
 				</div>
 				
-				<div id="editora_modal" class="modal fade">
+				<div id="emprestimo_modal" class="modal fade">
 					<div class="modal-dialog">
-						<form method="post" id="editora_form">
+						<form method="post" id="emprestimo_form">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Adicionar Editora</h4>
+									<h4 class="modal-title">Adicionar Empréstimo</h4>
 								</div>
 								<div class="modal-body">
-									<label>Nome</label>
-									<input type="text" name="editora_nome" id="editora_nome" class="form-control" />
+									<label>Usuários</label>
+									<select name="emprestimo_usuarios" id="emprestimo_usuarios" class="form-control"></select>
+									<label>Livros</label>
+									<select name="emprestimo_livros" id="emprestimo_livros" class="form-control"></select>
+									<label>Data Retirada</label>
+									<input type="text" name="emprestimo_data_retirada" id="emprestimo_data_retirada" class="form-control" />
+									<label>Data Prevista de Devolução</label>
+									<input type="text" name="emprestimo_data_prevista_devolucao" id="emprestimo_data_prevista_devolucao" class="form-control" />
+									<label>Data de Devolução</label>
+									<input type="text" name="emprestimo_data_real_devolucao" id="emprestimo_data_real_devolucao" class="form-control" />
 									<br />
 								</div>
 								<div class="modal-footer">
-									<input type="hidden" name="editora_id" id="editora_id" />
+									<input type="hidden" name="emprestimo_id" id="emprestimo_id" />
 									<input type="hidden" name="operation" id="operation" />
 									<input type="submit" name="action" id="action" class="btn btn-success" value="Salvar" />
 									<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -70,9 +83,9 @@
 						</form>
 					</div>
 				</div>
-				<!-- EDITORAS Data Table End -->
+				<!-- EMPRÉSTIMO Data Table End -->
 				
 			</div><!-- end container box -->
 		</body>
 	</html>
-	<script src="js/editoras.js" ></script>
+	<script src="js/emprestimos.js" ></script>

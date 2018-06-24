@@ -2,12 +2,12 @@
 $(document).ready(function(){
 
 	//Load Data
-	var dataTable = $('#editoras_data').DataTable({
+	var dataTable = $('#usuarios_data').DataTable({
 		"processing":true,
 		"serverSide":false,
 		"order":[],
 		"ajax":	{
-			url:"/api/Editoras",
+			url:"/api/Usuarios",
 			dataSrc:''
 		},
 		columns: [
@@ -23,8 +23,8 @@ $(document).ready(function(){
 	
 	//New Button
 	$('#add_button').click(function(){
-		$('#editora_form')[0].reset();
-		$('.modal-title').text("Nova Editora");
+		$('#usuario_form')[0].reset();
+		$('.modal-title').text("Novo Usuário");
 		$('#action').val("Add");
 		$('#operation').val("Add");
 		$('#user_uploaded_image').html('');
@@ -32,17 +32,17 @@ $(document).ready(function(){
 
 	//Edit Button
 	$(document).on('click', '.update', function(){
-		var editora_id = $(this).attr("id")
+		var usuario_id = $(this).attr("id")
 		$.ajax({
-			url:'api/Editoras/' + editora_id,
+			url:'api/Usuarios/' + usuario_id,
 			method:"GET",
 			dataType:"json",
 			success:function(data)
 			{
-				$('#editora_modal').modal('show');
-				$('#editora_nome').val(data.nome);
-				$('.modal-title').text("Alterar Editora");
-				$('#editora_id').val(editora_id);
+				$('#usuario_modal').modal('show');
+				$('#usuario_nome').val(data.nome);
+				$('.modal-title').text("Alterar Usuário");
+				$('#usuario_id').val(usuario_id);
 				$('#action').val("Edit");
 				$('#operation').val("Edit");
 			}
@@ -53,7 +53,7 @@ $(document).ready(function(){
 	$(document).on('click', '.delete', function(){
 		if(confirm("Confirma a exclusão do item?")) {
 			$.ajax({
-				url:'api/Editoras/' + $(this).attr("id"),
+				url:'api/Usuarios/' + $(this).attr("id"),
 				method:"DELETE",
 				success:function(data)
 				{
@@ -69,10 +69,10 @@ $(document).ready(function(){
 	});
 	
 	//Create or Update Record
-	$(document).on('submit', '#editora_form', function(event){
+	$(document).on('submit', '#usuario_form', function(event){
 		event.preventDefault();
-		var editora_id = $("#editora_id").val();
-		var editora_nome = $("#editora_nome").val();
+		var usuario_id = $("#usuario_id").val();
+		var usuario_nome = $("#usuario_nome").val();
 		var url = '';
 		var type = '';
 		var operation = $('#operation').val();
@@ -80,22 +80,22 @@ $(document).ready(function(){
 		if(operation=='Add') {
 			var items = {
 				id: 0,
-				nome: editora_nome
+				nome: usuario_nome
 			}
-			url = 'api/Editoras'
+			url = 'api/Usuarios'
 			type = 'POST'
 		}
 		
 		if(operation=='Edit') {
 			var items = {
-				id: editora_id,
-				nome: editora_nome
+				id: usuario_id,
+				nome: usuario_nome
 			}
-			url = 'api/Editoras/' + editora_id
+			url = 'api/Usuarios/' + usuario_id
 			type = 'PUT'
 		}
 		
-		if(editora_nome != '') {
+		if(usuario_nome != '') {
 			$.ajax({
 				url: url,
 				type: type,
@@ -103,8 +103,8 @@ $(document).ready(function(){
 				contentType: 'application/json',
 				data: JSON.stringify(items),
 				success:function(data) {
-					$('#editora_form')[0].reset();
-					$('#editora_modal').modal('hide');
+					$('#usuario_form')[0].reset();
+					$('#usuario_modal').modal('hide');
 					dataTable.ajax.reload();
 				}
 			});

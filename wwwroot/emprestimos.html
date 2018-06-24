@@ -29,52 +29,52 @@
 					</div><!-- /.container-fluid -->
 				</nav><!-- /.navbar -->
 
-				<!-- LIVROS Data Table -->
+				<!-- EMPRÉSTIMOS Data Table -->
 				<div class="table-responsive">
 					<br />
 					<div align="right">
-						<button type="button" id="add_button" data-toggle="modal" data-target="#livro_modal" class="btn btn-info btn-lg">Novo</button>
+						<button type="button" id="add_button" data-toggle="modal" data-target="#emprestimo_modal" class="btn btn-info btn-lg">Novo Empréstimo</button>
 					</div>
 					<br /><br />
-					<table id="livros_data" class="table table-bordered table-striped">
+					<table id="emprestimos_data" class="table table-bordered table-striped">
 						<thead>
 							<tr>
-								<th width="20%">Editora</th>
-								<th width="60%">Livro</th>
-								<th width="10%">Editar</th>
+								<th width="20%">Livro</th>
+								<th width="20%">Usuário</th>
+								<th width="10%">Data Emprestimo</th>
+								<th width="10%">Data Prevista</th>
+								<th width="10%">Data Devolução</th>
+								<th width="10%">Multa</th>
+								<th width="10%">Devolver</th>
 								<th width="10%">Excluir</th>
 							</tr>
 						</thead>
 					</table>
 				</div>
 				
-				<div id="livro_modal" class="modal fade">
+				<div id="emprestimo_modal" class="modal fade">
 					<div class="modal-dialog">
-						<form method="post" id="livro_form">
+						<form method="post" id="emprestimo_form">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Adicionar Livro</h4>
+									<h4 class="modal-title">Adicionar Empréstimo</h4>
 								</div>
 								<div class="modal-body">
-									<label>Nome</label>
-									<input type="text" name="livro_nome" id="livro_nome" class="form-control" />
-									<label>ISBN</label>
-									<input type="text" name="livro_isbn" id="livro_isbn" class="form-control" />
-									<label>Editora</label>
-									<select name="livro_editora" id="livro_editora" class="form-control"></select>
-									<label>Páginas</label>
-									<input type="text" name="livro_paginas" id="livro_paginas" class="form-control" />
-									<label>Ano</label>
-									<input type="text" name="livro_ano" id="livro_ano" class="form-control" />
-									<label>Código de Barras</label>
-									<input type="text" name="livro_codigo" id="livro_codigo" class="form-control" />
-									<label>Resenha</label>
-									<input type="textarea" name="livro_resenha" id="livro_resenha" class="form-control" />									
+									<label>Usuários</label>
+									<select name="emprestimo_usuarios" id="emprestimo_usuarios" class="form-control"></select>
+									<label>Livros</label>
+									<select name="emprestimo_livros" id="emprestimo_livros" class="form-control"></select>
+									<label>Data Retirada</label>
+									<input type="text" name="emprestimo_data_retirada" id="emprestimo_data_retirada" class="form-control" />
+									<label>Data Prevista de Devolução</label>
+									<input type="text" name="emprestimo_data_prevista_devolucao" id="emprestimo_data_prevista_devolucao" class="form-control" />
+									<label>Data de Devolução</label>
+									<input type="text" name="emprestimo_data_real_devolucao" id="emprestimo_data_real_devolucao" class="form-control" />
 									<br />
 								</div>
 								<div class="modal-footer">
-									<input type="hidden" name="livro_id" id="livro_id" />
+									<input type="hidden" name="emprestimo_id" id="emprestimo_id" />
 									<input type="hidden" name="operation" id="operation" />
 									<input type="submit" name="action" id="action" class="btn btn-success" value="Salvar" />
 									<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -83,9 +83,9 @@
 						</form>
 					</div>
 				</div>
-				<!-- LIVROS Data Table End -->
+				<!-- EMPRÉSTIMO Data Table End -->
 				
 			</div><!-- end container box -->
 		</body>
 	</html>
-	<script src="js/livros.js" ></script>
+	<script src="js/emprestimos.js" ></script>
